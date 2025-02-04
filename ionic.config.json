@@ -1,0 +1,7 @@
+{
+  "name": "Logroteca",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
