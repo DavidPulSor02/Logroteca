@@ -2,111 +2,141 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background: #1a1a1a;
+    background: linear-gradient(135deg, #1a1a1a, #222);
     color: white;
-    border-radius: 0;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .profile-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    padding: 10px;
+    background: #333;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .profile-avatar {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    border: 2px solid #00ff00;
+    border: 3px solid #00ff00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.1);
 }
 
 .profile-info h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .offline-btn {
-    background: gray;
+    background: #555;
     color: white;
     border: none;
-    padding: 10px;
-    width: 100%;
-    margin: 10px 0;
-    border-radius: 5px;
+    padding: 12px;
+    width: 90%;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.offline-btn:hover {
+    background: #777;
+}
+
+.platform-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.platform-icons ion-icon {
+    font-size: 30px;
+    color: #00ffcc;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.platform-icons ion-icon:hover {
+    transform: scale(1.2);
+    color: #00ff00;
 }
 
 .stats {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
-    margin: 10px 0;
+    margin: 15px 0;
     width: 100%;
+    max-width: 400px;
 }
 
-.stats div {
+.stat-item {
     font-size: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    width: 30%;
 }
 
 .tabs {
     display: flex;
     justify-content: space-around;
-    margin: 10px 0;
+    margin: 15px 0;
     width: 100%;
+    max-width: 400px;
 }
 
 .tabs button {
     background: none;
     border: none;
     color: white;
-    font-size: 14px;
-    padding: 5px;
+    font-size: 16px;
+    padding: 8px;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .tabs .active {
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid #00ffcc;
+    font-weight: bold;
 }
 
-.rewards-section {
-    background: #333;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px 0;
-    width: 100%;
-    text-align: center;
-}
-
+.rewards-section,
 .objective-box {
-    background: #444;
-    padding: 15px;
-    border-radius: 5px;
+    background: #333;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    width: 90%;
     text-align: center;
-    width: 100%;
 }
 
 .claim-btn {
-    background: green;
+    background: linear-gradient(45deg, #181b49, #00ccff);
     color: white;
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
-    margin-top: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.platform-icons {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.platform-icons img {
-    width: 30px;
-    height: 30px;
+.claim-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.4);
 }
