@@ -6,9 +6,11 @@
 
 <ion-content>
   <ion-grid>
+    <h1 class="h1">Tus juegos</h1>
     <ion-row>
       <ion-col size="6" *ngFor="let game of games">
         <ion-card class="card">
+
           <img [src]="game.image" class="imagencard" />
           <ion-card-header>
             <ion-card-title>{{ game.title }}</ion-card-title>
@@ -23,7 +25,6 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
   <ion-card>
     <ion-card-header>
       <ion-card-title>🏆 Logros Desbloqueados</ion-card-title>
