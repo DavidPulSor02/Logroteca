@@ -8,8 +8,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let game of games">
-        <ion-card>
-          <img [src]="game.image" />
+        <ion-card class="card">
+          <img [src]="game.image" class="imagencard" />
           <ion-card-header>
             <ion-card-title>{{ game.title }}</ion-card-title>
           </ion-card-header>
@@ -32,7 +32,8 @@
       <ion-list>
         <ion-item *ngFor="let achievement of achievements">
           <ion-label>{{ achievement }}</ion-label>
-          <ion-button color="warning" (click)="markAsAdded(achievement)" [disabled]="addedAchievements.includes(achievement)">
+          <ion-button color="warning" (click)="markAsAdded(achievement)"
+            [disabled]="addedAchievements.includes(achievement)">
             <ion-icon *ngIf="!addedAchievements.includes(achievement)" name="add-circle"></ion-icon>
             <ion-icon *ngIf="addedAchievements.includes(achievement)" name="checkmark-circle"></ion-icon>
             {{ addedAchievements.includes(achievement) ? 'Agregado' : 'Añadir' }}
@@ -42,4 +43,3 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
-<h1>hola</h1>

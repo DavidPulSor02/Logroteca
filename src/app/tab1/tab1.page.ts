@@ -10,15 +10,15 @@ import { NavController } from '@ionic/angular';
 export class Tab1Page {
 
   games = [
-    { 
-      title: 'Juego Aventura', 
-      image: 'https://th.bing.com/th?u=https%3a%2f%2fstore-images.s-microsoft.com%2fimage%2fapps.43942.70702278257994163.eb8febd9-1124-4e74-9587-d5082fbfffb5.75a42b9d-60e8-4a39-a073-7fcbc9b9deee&ehk=ZSGvH1%2fqmek7DE7TMiAI4C5DJyuwuowT0f9HaSJpemk%3d&w=180&h=180&o=6&dpr=1.3&pid=adswpo', 
+    {
+      title: 'Fortnite',
+      image: 'https://th.bing.com/th?u=https%3a%2f%2fstore-images.s-microsoft.com%2fimage%2fapps.43942.70702278257994163.eb8febd9-1124-4e74-9587-d5082fbfffb5.75a42b9d-60e8-4a39-a073-7fcbc9b9deee&ehk=ZSGvH1%2fqmek7DE7TMiAI4C5DJyuwuowT0f9HaSJpemk%3d&w=180&h=180&o=6&dpr=1.3&pid=adswpo',
       description: 'Explora un mundo increíble.',
       achievements: ['Primer paso', 'Explorador experto']
     },
-    { 
-      title: 'Carreras Rápidas', 
-      image: 'assets/images/game2.jpg', 
+    {
+      title: 'Rocket ',
+      image: 'https://th.bing.com/th/id/OIP.yx7Xhr2dirVE-UabhaqplwHaEK?rs=1&pid=ImgDetMain',
       description: 'Corre a máxima velocidad.',
       achievements: ['Primer carrera', 'Campeón']
     }
@@ -27,7 +27,7 @@ export class Tab1Page {
   achievements: string[] = [];
   addedAchievements: string[] = [];
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController) { }
 
   addAchievement(game: any) {
     game.achievements.forEach((ach: string) => {
