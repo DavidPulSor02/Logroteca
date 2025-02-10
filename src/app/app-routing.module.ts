@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },  {
+  },
+  {
     path: 'fortnite',
     loadChildren: () => import('./components/fortnite/fortnite.module').then( m => m.FortnitePageModule)
   },
   {
-<<<<<<< HEAD
     path: 'among-us',
     loadChildren: () => import('./components/among-us/among-us.module').then( m => m.AmongUsPageModule)
   },
@@ -29,21 +29,6 @@ const routes: Routes = [
   {
     path: 'la-flipante-fiesta-de-mario',
     loadChildren: () => import('./components/la-flipante-fiesta-de-mario/la-flipante-fiesta-de-mario.module').then( m => m.LaFlipanteFiestaDeMarioPageModule)
-  },
-
-
-];
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {}
-=======
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-
   }
 ];
 @NgModule({
@@ -52,5 +37,4 @@ export class AppRoutingModule {}
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
->>>>>>> fe96c6355317a93433d086eae268f9d7378118a4
+export class AppRoutingModule {}
