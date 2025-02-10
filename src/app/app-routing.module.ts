@@ -10,6 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/fortnite/fortnite.module').then( m => m.FortnitePageModule)
   },
   {
+<<<<<<< HEAD
     path: 'among-us',
     loadChildren: () => import('./components/among-us/among-us.module').then( m => m.AmongUsPageModule)
   },
@@ -39,3 +40,17 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+=======
+    path: '',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+
+  }
+];
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+>>>>>>> fe96c6355317a93433d086eae268f9d7378118a4

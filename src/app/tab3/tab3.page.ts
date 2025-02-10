@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -7,8 +8,12 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab3Page {
+  constructor(@Inject(MenuController) private menuController: MenuController) { }
 
-  constructor() {
+  // Método para abrir el menú
+  openMenu() {
+    this.menuController.open('profileMenu');
   }
+
 
 }
