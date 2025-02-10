@@ -8,57 +8,61 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12">
-        <h2>Mis Juegos</h2>
-        <ion-list *ngIf="myGames.length > 0; else emptyList">
-          <ion-item *ngFor="let game of myGames">
-            <ion-thumbnail slot="start">
-              <img [src]="game.image" />
-            </ion-thumbnail>
-            <ion-label>{{ game.title }}</ion-label>
-          </ion-item>
-        </ion-list>
-        <ng-template #emptyList>
-          <p>No se encuentran juegos.</p>
-        </ng-template>
-      </ion-col>
-    </ion-row>
+  <ion-slides pager="true">
+    <ion-slide>
+      <h2>Juegos seleccionados</h2>
+      <ion-list *ngIf="myGames.length > 0; else emptyList">
+        <ion-item *ngFor="let game of myGames">
+          <ion-thumbnail slot="start">
+            <img [src]="game.image" />
+          </ion-thumbnail>
+          <ion-label>{{ game.title }}</ion-label>
+        </ion-item>
+      </ion-list>
+      <ng-template #emptyList>
+        <p>No se encuentran juegos.</p>
+      </ng-template>
+    </ion-slide>
+    
+    <ion-slide>
+      <h2>Juegos que detectamos en tu librería</h2>
+      <ion-list *ngIf="filteredGames.length > 0">
+        <ion-item *ngFor="let game of filteredGames">
+          <ion-thumbnail slot="start">
+            <img [src]="game.image" />
+          </ion-thumbnail>
+          <ion-label>{{ game.title }}</ion-label>
+          <ion-button (click)="addToMyGames(game)">Agregar</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
 
-    <ion-row>
-      <ion-col size="12">
-        <h2>Explorar Juegos</h2>
-      </ion-col>
-      <ion-col size="6" *ngFor="let game of filterGames()">
-        <ion-card>
-          <img [src]="game.image" class="imagencard" />
-          <ion-card-header>
-            <ion-card-title>{{ game.title }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>{{ game.description }}</p>
-            <ion-button color="success" (click)="addToMyGames(game)">
-              <ion-icon name="add-circle"></ion-icon> Agregar
-            </ion-button>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="12">
-        <h2>Lo Más Jugado</h2>
-        <p>(Aquí puedes poner los juegos más populares)</p>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="12">
-        <h2>Recomendados</h2>
-        <p>(Aquí puedes poner recomendaciones basadas en tendencias)</p>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <!-- Cookie flotante -->
+  <div class="cookie-popup" *ngIf="showCookies">
+    <p>Este sitio accede a los datos de tu PC para detectar juegos en tu librería.</p>
+    <ion-button (click)="acceptCookies()">Aceptar</ion-button>
+  </div>
 </ion-content>
-<ion-content>
+
+<style>
+  .cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+  }
+
+  .cookie-popup ion-button {
+    margin-top: 10px;
+    --background: #4CAF50;
+  }
+</style>

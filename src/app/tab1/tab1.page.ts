@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab1Page {
+  
+  achievements: string[] = [];
+  addedAchievements: string[] = [];
+  searchText: string = '';
+  showCookies: boolean = true;
+
   games = [
     {
       title: 'Fortnite',
@@ -14,14 +20,19 @@ export class Tab1Page {
       description: 'Explora un mundo increíble.'
     },
     {
-      title: 'Rocket ',
+      title: 'Rocket League',
       image: 'https://th.bing.com/th/id/OIP.yx7Xhr2dirVE-UabhaqplwHaEK?rs=1&pid=ImgDetMain',
       description: 'Corre a máxima velocidad.'
     }
   ];
 
   myGames: any[] = [];
-  searchText: string = '';
+
+  markAsAdded(achievement: string) {
+    if (!this.addedAchievements.includes(achievement)) {
+      this.addedAchievements.push(achievement);
+    }
+  }
 
   addToMyGames(game: any) {
     if (!this.myGames.some(g => g.title === game.title)) {
@@ -29,9 +40,13 @@ export class Tab1Page {
     }
   }
 
-  filterGames() {
+  get filteredGames() {
     return this.games.filter(game =>
       game.title.toLowerCase().includes(this.searchText.toLowerCase())
     );
+  }
+
+  acceptCookies() {
+    this.showCookies = false;
   }
 }
