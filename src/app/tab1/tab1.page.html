@@ -2,7 +2,49 @@
   <ion-toolbar>
     <ion-title>Explorador de Juegos</ion-title>
   </ion-toolbar>
-  
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchText" placeholder="Buscar juegos..."></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h2>Mis Juegos</h2>
+        <ion-list *ngIf="myGames.length > 0; else emptyList">
+          <ion-item *ngFor="let game of myGames">
+            <ion-thumbnail slot="start">
+              <img [src]="game.image" />
+            </ion-thumbnail>
+            <ion-label>{{ game.title }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ng-template #emptyList>
+          <p>No se encuentran juegos.</p>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <h2>Explorar Juegos</h2>
+      </ion-col>
+      <ion-col size="6" *ngFor="let game of filterGames()">
+        <ion-card>
+          <img [src]="game.image" class="imagencard" />
+          <ion-card-header>
+            <ion-card-title>{{ game.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ game.description }}</p>
+            <ion-button color="success" (click)="addToMyGames(game)">
+              <ion-icon name="add-circle"></ion-icon> Agregar
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
     <ion-row>
       <ion-col size="12">
@@ -17,9 +59,6 @@
         <p>(Aquí puedes poner recomendaciones basadas en tendencias)</p>
       </ion-col>
     </ion-row>
-  
-
-
-
-
-    <h1>ve</h1>
+  </ion-grid>
+</ion-content>
+<ion-content>
