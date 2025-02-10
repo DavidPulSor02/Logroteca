@@ -9,6 +9,7 @@
 
 <ion-content>
   <ion-slides pager="true">
+    <!-- 🔹 Sección de Juegos Seleccionados -->
     <ion-slide>
       <h2>Juegos seleccionados</h2>
       <ion-list *ngIf="myGames.length > 0; else emptyList">
@@ -17,6 +18,7 @@
             <img [src]="game.image" />
           </ion-thumbnail>
           <ion-label>{{ game.title }}</ion-label>
+          <ion-button color="danger" (click)="removeFromMyGames(game)">Eliminar</ion-button>
         </ion-item>
       </ion-list>
       <ng-template #emptyList>
@@ -24,6 +26,7 @@
       </ng-template>
     </ion-slide>
     
+    <!-- 🔹 Sección de Juegos Disponibles -->
     <ion-slide>
       <h2>Juegos que detectamos en tu librería</h2>
       <ion-list *ngIf="filteredGames.length > 0">
@@ -38,7 +41,7 @@
     </ion-slide>
   </ion-slides>
 
-  <!-- Cookie flotante -->
+  <!-- 🔹 Cookie flotante -->
   <div class="cookie-popup" *ngIf="showCookies">
     <p>Este sitio accede a los datos de tu PC para detectar juegos en tu librería.</p>
     <ion-button (click)="acceptCookies()">Aceptar</ion-button>

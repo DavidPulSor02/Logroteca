@@ -1,77 +1,22 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Mis Logros
-    </ion-title>
+    <ion-title>Mis Logros</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-card routerLink="/fortnite">
-      <img alt="Silhouette of mountains" src="https://cdn1.epicgames.com/offer/fn/EN_BXECO_33-00_Shooter_EGS_Launcher_Blade_2560x1440_2560x1440-36e1ff15dc00cd506986a2565764bbd3" />
+    <ion-card *ngFor="let game of myGames">
+      <img [src]="game.image" alt="Imagen del juego" />
       <ion-card-header>
-        <ion-card-title>Fortnite</ion-card-title>
-        <ion-card-subtitle>Logros de Fortnite</ion-card-subtitle>
+        <ion-card-title>{{ game.title }}</ion-card-title>
+        <ion-card-subtitle>Logros de {{ game.title }}</ion-card-subtitle>
       </ion-card-header>
-    
+
       <ion-card-content>
-        Este es tu progreso = 2/10 <br> ¡Sigue así!
-      </ion-card-content>
-    </ion-card>
-    <ion-card routerLink="/among-us">
-      <img alt="Silhouette of mountains" src="https://static.wixstatic.com/media/8c48d8_14a87ebb765d40e19a9b100268f1da7a~mv2.jpg/v1/fill/w_992,h_558,al_c,q_85/8c48d8_14a87ebb765d40e19a9b100268f1da7a~mv2.jpg" />
-      <ion-card-header>
-        <ion-card-title>Among Us</ion-card-title>
-        <ion-card-subtitle>Logros de Among Us</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Este es tu progreso = 5/10 <br> ¡Sigue así!
-      </ion-card-content>
-    </ion-card>
-    <ion-card routerLink="/futbol-de-carros">
-      <img alt="Silhouette of mountains" src="https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S3_2560x1440-18eac9b5df1028fdcd5bad480ab6b085" />
-      <ion-card-header>
-        <ion-card-title>Rocket League</ion-card-title>
-        <ion-card-subtitle>Logros de Rocket League</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Este es tu progreso = 7/10 <br> ¡Sigue así!
-      </ion-card-content>
-    </ion-card>
-    <ion-card routerLink="/carlos-duty">
-      <img alt="Silhouette of mountains" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Call_of_Duty_2023_logo.svg/1280px-Call_of_Duty_2023_logo.svg.png" />
-      <ion-card-header>
-        <ion-card-title>Call of Duty</ion-card-title>
-        <ion-card-subtitle>Logros de Call of Duty</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Este es tu progreso = 3/10 <br> ¡Sigue así!
-      </ion-card-content>
-    </ion-card>
-    <ion-card routerLink="la-flipante-fiesta-de-mario">
-      <img alt="Silhouette of mountains" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Mario_Party_Logo_%28MPSuperstars%29.png/1200px-Mario_Party_Logo_%28MPSuperstars%29.png" />
-      <ion-card-header>
-        <ion-card-title>Mario Party</ion-card-title>
-        <ion-card-subtitle>Logros de Mario Party</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Este es tu progreso = 8/10 <br> ¡Sigue así!
-      </ion-card-content>
-    </ion-card>
-    <ion-card routerLink="solo-baila">
-      <img alt="Silhouette of mountains" src="https://sm.ign.com/ign_es/screenshot/default/analisis-just-dance-2022_y8g5.jpg" />
-      <ion-card-header>
-        <ion-card-title>Just Dance</ion-card-title>
-        <ion-card-subtitle>Logros de Just Dance</ion-card-subtitle>
-      </ion-card-header>
-    
-      <ion-card-content>
-        Este es tu progreso = 6/10 <br> ¡Sigue así!
+        <p>Este es tu progreso = {{ logros[game.title]?.length || 0 }}/10</p>
+        <p>¡Sigue así!</p>
+        <ion-button (click)="gameService.addLogro(game.title, 'Nuevo Logro')">Agregar Logro</ion-button>
       </ion-card-content>
     </ion-card>
   </ion-list>

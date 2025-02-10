@@ -29,7 +29,9 @@ const routes: Routes = [
   {
     path: 'la-flipante-fiesta-de-mario',
     loadChildren: () => import('./components/la-flipante-fiesta-de-mario/la-flipante-fiesta-de-mario.module').then( m => m.LaFlipanteFiestaDeMarioPageModule)
-  }
+  },
+  { path: 'tab1', loadComponent: () => import('./tab1/tab1.page').then(m => m.Tab1Page) },
+  { path: 'tab2', loadComponent: () => import('./tab2/tab2.page').then(m => m.Tab2Page) },
 ];
 
 @NgModule({

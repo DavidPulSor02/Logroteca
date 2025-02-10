@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,19 +8,13 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab2Page {
+  myGames: any[] = [];
+  logros: any = {};
 
-  constructor() {
-    
+  constructor(public gameService: GameService) {}
+
+  ngOnInit() {
+    this.gameService.myGames$.subscribe(games => this.myGames = games);
+    this.gameService.logros$.subscribe(logros => this.logros = logros);
   }
-  myGames: any[] = JSON.parse(localStorage.getItem('myGames') || '[]');
-  logros: any = JSON.parse(localStorage.getItem('logros') || '{}');
-
-  addLogro(gameTitle: string, logro: string) {
-    if (!this.logros[gameTitle]) {
-      this.logros[gameTitle] = [];
-    }
-    this.logros[gameTitle].push(logro);
-    localStorage.setItem('logros', JSON.stringify(this.logros));
-  }
-
 }
