@@ -12,3 +12,24 @@
     padding: center;
     color: #00ffcc;
 }
+
+.cookie-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    z-index: 1000;
+  }
+
+  .cookie-popup ion-button {
+    margin-top: 10px;
+    --background: #4CAF50;
+  }
+

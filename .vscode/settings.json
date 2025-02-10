@@ -1,3 +1,11 @@
 {
-  "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular/standalone"]
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@ionic/angular/common",
+    "@ionic/angular/standalone"
+  ],
+  "vscode-pets.petSize": "medium",
+  "vscode-pets.position": "explorer",
+  "vscode-pets.throwBallWithMouse": true,
+  "vscode-pets.theme": "beach",
+  "vscode-pets.disableEffects": false
 }
