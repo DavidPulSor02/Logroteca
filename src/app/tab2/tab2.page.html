@@ -1,12 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Mis Logros</ion-title>
+    <ion-title>{{ selectedGame ? selectedGame.title : 'Mis Logros' }}</ion-title>
+    <ion-buttons slot="start" *ngIf="selectedGame">
+      <ion-button (click)="selectedGame = null">⬅ Volver</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-card *ngFor="let game of myGames">
+  <ion-list *ngIf="!selectedGame">
+    <ion-card *ngFor="let game of myGames" (click)="viewGame(game)">
       <img [src]="game.image" alt="Imagen del juego" />
       <ion-card-header>
         <ion-card-title>{{ game.title }}</ion-card-title>
@@ -16,8 +19,19 @@
       <ion-card-content>
         <p>Este es tu progreso = {{ logros[game.title]?.length || 0 }}/10</p>
         <p>¡Sigue así!</p>
-        <ion-button (click)="gameService.addLogro(game.title, 'Nuevo Logro')">Agregar Logro</ion-button>
       </ion-card-content>
     </ion-card>
   </ion-list>
+
+  <!-- Vista de detalles del juego -->
+  <div *ngIf="selectedGame">
+    <ion-list>
+      <ion-item *ngFor="let logro of logros[selectedGame.title]">
+        <ion-label>{{ logro }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" (click)="gameService.addLogro(selectedGame.title, 'Nuevo Logro')">
+      Agregar Logro
+    </ion-button>
+  </div>
 </ion-content>
