@@ -8,6 +8,18 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor() {
+    
+  }
+  myGames: any[] = JSON.parse(localStorage.getItem('myGames') || '[]');
+  logros: any = JSON.parse(localStorage.getItem('logros') || '{}');
+
+  addLogro(gameTitle: string, logro: string) {
+    if (!this.logros[gameTitle]) {
+      this.logros[gameTitle] = [];
+    }
+    this.logros[gameTitle].push(logro);
+    localStorage.setItem('logros', JSON.stringify(this.logros));
+  }
 
 }
