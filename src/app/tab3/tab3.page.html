@@ -1,57 +1,153 @@
-<div class="profile-container">
-  <div class="profile-header">
-    <ion-icon name="person-add-outline"></ion-icon>
-    <img src="https://th.bing.com/th/id/R.118989f326d654feb35285c39ed3e08e?rik=po82LHVoh1tVqw&pid=ImgRaw&r=0"
-      alt="Avatar" class="profile-avatar" />
-    <div class="profile-info">
-      <h2 class="username">Davadava30</h2>
+<ion-content fullscreen="true">
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="https://th.bing.com/th/id/R.118989f326d654feb35285c39ed3e08e?rik=po82LHVoh1tVqw&pid=ImgRaw&r=0"
+        alt="Avatar" class="profile-avatar" />
+      <div class="profile-info">
+        <h2 class="username">user</h2>
+        <ion-icon name="people-outline" aria-label="Lista de amigos"></ion-icon>
+        <ion-icon name="person-add-outline" aria-label="Agregar amigo"></ion-icon>
+      </div>
     </div>
-  </div>
-  <ion-icon name="people-outline"></ion-icon>
-  <button class="offline-btn"> APARECER SIN CONEXIÓN</button>
-  <div class="platform-icons">
-    <ion-icon name="logo-discord"></ion-icon>
-    <ion-icon name="logo-xbox"></ion-icon>
-    <ion-icon name="logo-steam"></ion-icon>
-  </div>
 
-  <div class="stats">
-    <div class="stat-item">
+    <button class="offline-btn">🔴 APARECER SIN CONEXIÓN</button>
 
-      <strong>44</strong>
-      <span>Amigos</span>
+    <div class="platform-icons">
+      <ion-icon name="logo-discord" (click)="showAlert('Discord')" aria-label="Discord"></ion-icon>
+      <ion-icon name="logo-xbox" (click)="showAlert('Xbox')" aria-label="Xbox"></ion-icon>
+      <ion-icon name="logo-steam" (click)="showAlert('Steam')" aria-label="Steam"></ion-icon>
     </div>
-    <div class="stat-item">
-      <strong>84</strong>
-      <span>Siguiendo</span>
+
+    <div class="stats">
+      <div class="stat-item">
+        <strong>44</strong>
+        <span>Amigos</span>
+      </div>
+      <div class="stat-item">
+        <strong>84</strong>
+        <span>Siguiendo</span>
+      </div>
+      <div class="stat-item">
+        <strong>22</strong>
+        <span>Seguidores</span>
+      </div>
     </div>
-    <div class="stat-item">
-      <strong>22</strong>
-      <span>Seguidores</span>
+
+    <div class="tabs">
+      <button class="tab" [class.active]="selectedTab === 'Juegos'" (click)="changeTab('Juegos')">🎮 Juegos</button>
+      <button class="tab" [class.active]="selectedTab === 'publicaciones'" (click)="changeTab('publicaciones')">📝
+        Publicaciones</button>
+      <button class="tab" [class.active]="selectedTab === 'logros'" (click)="changeTab('logros')">🏆 Logros</button>
     </div>
+
+    <!-- Sección de PREMIOS -->
+    <div *ngIf="selectedTab === 'Juegos'">
+      <h3>🎮 Juegos Populares</h3>
+      <ion-list>
+        <ion-card *ngFor="let juego of juegos">
+          <img [src]="juego.imagen" [alt]="juego.nombre">
+          <ion-card-header>
+            <ion-card-title>{{ juego.nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ juego.nombre }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ juego.nombre }}</p>
+            <ion-button expand="full" color="primary">Ver más</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </div>
+
+  </div>
+  <!-- Sección de LOGROS -->
+  <div *ngIf="selectedTab === 'logros'">
+    <h3>🎮 Logros</h3>
+    <ion-list>
+      <ion-card>
+        <img src="https://th.bing.com/th/id/OIP.4_HOJV-wjPu-hoYwirGdmwHaEs?rs=1&pid=ImgDetMain" alt="Fortnite">
+        <ion-card-header>
+          <ion-card-title>🏆 Logros en Fortnite</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-icon name="trophy-outline" slot="start"></ion-icon>
+            <ion-label>Victoria Royale (10 veces)</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="flame-outline" slot="start"></ion-icon>
+            <ion-label>Racha de 5 victorias seguidas</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="cube-outline" slot="start"></ion-icon>
+            <ion-label>Construcción Maestra: 100 estructuras en una partida</ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <img src="https://th.bing.com/th/id/OIP.yx7Xhr2dirVE-UabhaqplwHaEK?rs=1&pid=ImgDetMain" alt="Rocket League">
+        <ion-card-header>
+          <ion-card-title>🚀 Logros en Rocket League</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-icon name="medal-outline" slot="start"></ion-icon>
+            <ion-label>Marcó 500 goles</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="car-sport-outline" slot="start"></ion-icon>
+            <ion-label>Turbo Master: 10,000 metros recorridos con boost</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="football-outline" slot="start"></ion-icon>
+            <ion-label>Gol de chilena desde medio campo</ion-label>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
   </div>
 
-  <div class="tabs">
-    <button class="tab active">🏆 Premios</button>
-    <button class="tab">📝 Publicaciones</button>
-    <button class="tab">🎮 Logros</button>
+  <!-- Sección de PUBLICACIONES -->
+  <div *ngIf="selectedTab === 'publicaciones'">
+    <h3>📝 Publicaciones de Videojuegos</h3>
+    <p>Aquí aparecen las últimas novedades sobre videojuegos.</p>
+
+    <ion-card>
+      <ion-img src="https://th.bing.com/th/id/OIP.4_HOJV-wjPu-hoYwirGdmwHaEs?rs=1&pid=ImgDetMain"></ion-img>
+      <ion-card-header>
+        <ion-card-title>Fortnite 2</ion-card-title>
+        <ion-card-subtitle>Epic Games</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Nueva temporada de Fortnite con mapas renovados y más skins. ¿Ya jugaste?
+      </ion-card-content>
+      <ion-button expand="full" color="primary" mode="md">Ver más</ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-img
+        src="https://th.bing.com/th/id/R.bd89e7a66789e7e87c67c466c9de9378?rik=oIcrcJaTKu%2fCNg&pid=ImgRaw&r=0"></ion-img>
+      <ion-card-header>
+        <ion-card-title>⚔️ God of War: Ragnarok</ion-card-title>
+        <ion-card-subtitle>Santa Monica Studio</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Kratos y Atreus regresan en una nueva aventura llena de acción. ¿Listo para enfrentarte a los dioses?
+      </ion-card-content>
+      <ion-button expand="full" color="danger" mode="md">Ver más</ion-button>
+    </ion-card>
+
+    <ion-card>
+      <ion-img src="https://th.bing.com/th/id/OIP.AWUYCo50jLDUEF_weLZaZAHaEo?rs=1&pid=ImgDetMain"></ion-img>
+      <ion-card-header>
+        <ion-card-title>GTA V DLC</ion-card-title>
+        <ion-card-subtitle>Rockstar Games</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        "The Doomsday Heist" es un DLC de GTA Online en el que los jugadores deben evitar una catástrofe global.
+      </ion-card-content>
+      <ion-button expand="full" color="tertiary" mode="md">Ver más</ion-button>
+    </ion-card>
   </div>
 
-  <div class="rewards-section">
-    <p><strong>Puntos de Rewards:</strong> <span class="reward-points">3,497</span></p>
-    <p><strong>Racha móvil:</strong> <span class="streak">1d seguidos</span></p>
-  </div>
-
-  <div class="objective-box">
-    <h3>🎯 DEFINIR UN OBJETIVO</h3>
-    <p>Elige un premio favorito y realiza un seguimiento de tu progreso.</p>
-  </div>
-
-<<<<<<< HEAD
-  <button class="claim-btn">🎁 RECLAMAR PREMIOS</button>
-=======
-  <button class="claim-btn">🎁 PREMIOS</button>
->>>>>>> 8f0a73a2bf5e672c206c7605f1379b6cfd15e030
-
-
-</div>
+</ion-content>

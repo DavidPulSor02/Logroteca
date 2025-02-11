@@ -17,7 +17,7 @@
       </ion-card-header>
 
       <ion-card-content>
-        <p>Este es tu progreso = {{ logros[game.title]?.length || 0 }}/10</p>
+        <p>Este es tu progreso = {{ logros[game.title]?.length || 0 }}/100</p>
         <p>¡Sigue así!</p>
       </ion-card-content>
     </ion-card>
@@ -30,7 +30,7 @@
         <ion-label>{{ logro }}</ion-label>
       </ion-item>
     </ion-list>
-    <ion-button expand="full" (click)="gameService.addLogro(selectedGame.title, 'Nuevo Logro')">
+    <ion-button expand="full" (click)="gameService.addLogro(selectedGame.title, 'Nuevo Logro')" [color]="selectedGame.color">
       Agregar Logro
     </ion-button>
   </div>

@@ -1,18 +1,20 @@
 /* Estilos generales */
 .profile-container {
-    width: flex;
-    background: #121212;
+    max-width: 400px;
+    background: #1a1a1a;
     color: #fff;
     padding: 20px;
     border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: auto;
 }
 
 .profile-container:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Encabezado del perfil */
@@ -22,11 +24,12 @@
     justify-content: center;
     position: relative;
     margin-bottom: 10px;
+    gap: 12px;
 }
 
 .profile-avatar {
-    width: 85px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     border: 4px solid #4caf50;
     transition: transform 0.3s ease-in-out;
@@ -36,26 +39,22 @@
     transform: scale(1.1);
 }
 
-.profile-info {
-    margin-left: 12px;
-}
-
 .username {
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 5px;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 /* Íconos */
 ion-icon {
-    font-size: 24px;
+    font-size: 26px;
     cursor: pointer;
     color: #4caf50;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 ion-icon:hover {
     color: #66ff66;
+    transform: scale(1.2);
 }
 
 /* Botón de aparecer sin conexión */
@@ -66,27 +65,28 @@ ion-icon:hover {
     padding: 12px;
     width: 100%;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     margin: 12px 0;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .offline-btn:hover {
-    background: #cc2e25;
+    background: #208846;
+    transform: scale(1.05);
 }
 
 /* Iconos de plataformas */
 .platform-icons {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 20px;
     margin: 12px 0;
 }
 
 .platform-icons ion-icon {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 /* Sección de estadísticas */
@@ -94,6 +94,9 @@ ion-icon:hover {
     display: flex;
     justify-content: space-around;
     margin: 20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 10px;
 }
 
 .stat-item {
@@ -102,13 +105,13 @@ ion-icon:hover {
 
 .stat-item strong {
     display: block;
-    font-size: 22px;
+    font-size: 24px;
     color: #66ff66;
 }
 
 .stat-item span {
     font-size: 14px;
-    color: #aaa;
+    color: #ccc;
 }
 
 /* Pestañas */
@@ -116,13 +119,16 @@ ion-icon:hover {
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 10px;
 }
 
 .tab {
     background: none;
     border: none;
     color: white;
-    font-size: 15px;
+    font-size: 16px;
     cursor: pointer;
     padding: 10px;
     border-radius: 8px;
@@ -135,14 +141,14 @@ ion-icon:hover {
 }
 
 .tab:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Sección de recompensas */
 .rewards-section {
     margin-top: 18px;
-    text-align: left;
-    font-size: 15px;
+    text-align: center;
+    font-size: 16px;
     background: rgba(255, 255, 255, 0.1);
     padding: 12px;
     border-radius: 8px;
@@ -150,10 +156,12 @@ ion-icon:hover {
 
 .reward-points {
     color: #ffd700;
+    font-weight: bold;
 }
 
 .streak {
     color: #66ff66;
+    font-weight: bold;
 }
 
 /* Objetivo */
@@ -179,7 +187,7 @@ ion-icon:hover {
     padding: 12px;
     width: 100%;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
     margin-top: 12px;
     cursor: pointer;
